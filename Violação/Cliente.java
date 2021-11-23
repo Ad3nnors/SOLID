@@ -13,13 +13,6 @@ public class Cliente{
     	private static String cpf;
 	private String nome;
 	private String telefone;
-
-    	public Cliente(Long id, String cpf, String nome, String telefone) {
-	    	this.id = id;
-		this.cpf = cpf;
-		this.nome = nome;
-		this.telefone = telefone;
-    	}
 	
 	public void insert() throws Exception {
 		String sql = "INSERT INTO CLIENTE (cpf, nome, telefone) VALUES (?, ?, ?)";
@@ -56,6 +49,13 @@ public class Cliente{
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+    	}
+	
+	public Cliente(Long id, String cpf, String nome, String telefone) {
+	    	this.id = id;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.telefone = telefone;
     	}
 	
     	public Cliente() {}
