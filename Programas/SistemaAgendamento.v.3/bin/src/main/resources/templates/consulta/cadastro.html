@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Cadastrar Consultas</span></li>
+				</ul>
+			</div>
+			<a class="btn btn-primary btn-md" th:href="@{/consultas/listar}"
+				role="button"> <span class="oi oi-spreadsheet" title="Cadastro"
+				aria-hidden="true"></span> <span th:text="#{consulta.listar.label}"></span>
+			</a>
+		</nav>
+
+		<div class="container" id="cadastro">
+
+			<div th:replace="fragments/alert"></div>
+
+			<form
+				th:action="${consulta.id == null} ? @{/consultas/salvar} : @{/consultas/editar}"
+				th:object="${consulta}" method="POST">
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label th:text="#{consulta.dataehora.label}" for="nome"></label> 
+						<input type="text" class="form-control" id="data_hora" th:placeholder="#{consulta.dataehora.label}"
+							data-mask="00/00/0000 00:00" data-mask-reverse="true" th:field="*{data_hora}"
+							th:classappend="${#fields.hasErrors('data_hora')} ? is-invalid" />
+						
+						<div class="invalid-feedback">
+							<span th:errors="*{data_hora}"></span>
+						</div>
+					</div>
+
+				</div>
+				<input type="hidden" id="id" th:field="*{id}" />
+				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+			</form>
+		</div>
+	</section>
+</body>
+</html>
