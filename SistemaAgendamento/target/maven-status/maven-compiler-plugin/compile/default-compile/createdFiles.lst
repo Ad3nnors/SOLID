@@ -1,0 +1,14 @@
+br\ufscar\dc\dsw\dao\ConsultasDAO.class
+br\ufscar\dc\dsw\domain\Clientes.class
+br\ufscar\dc\dsw\controller\ClientesController.class
+br\ufscar\dc\dsw\dao\ClientesDAO.class
+br\ufscar\dc\dsw\dao\ProfissionaisDAO.class
+br\ufscar\dc\dsw\util\Erro.class
+br\ufscar\dc\dsw\controller\CriaClientesController.class
+br\ufscar\dc\dsw\controller\CriaConsultasController.class
+br\ufscar\dc\dsw\controller\ProfissionaisController.class
+br\ufscar\dc\dsw\AcessaBD.class
+br\ufscar\dc\dsw\domain\Profissionais.class
+br\ufscar\dc\dsw\domain\Consultas.class
+br\ufscar\dc\dsw\controller\autentifica.class
+br\ufscar\dc\dsw\dao\GenericDAO.class
