@@ -21,9 +21,7 @@ public interface IConsultasDAO extends CrudRepository<Consultas, Long> {
 
 	List<Consultas> findAllByCliente(Clientes cli);
 	
-	
 	Consultas findByProfissionalAndDataHora(Profissionais profissional, String dataHora);
 
 	Consultas findByClienteAndDataHora(Clientes cliente, String dataHora);
-	
 }
