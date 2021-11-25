@@ -11,6 +11,11 @@ Tabela de conteúdo:
  4. [Liskov Substitution Principle (LSP)](#lsp)
  5. [Interface Segregation Principle (ISP)](#isp)
  6. [Dependency Inversion Principle (DIP)](#dip)
+ 	6.1. [Discussões](#dip0)
+		6.1.1. [O que é o princípio da inversão de dependência?](#dip1)
+		6.1.2. [O que é inversão de controle?](#dip2)
+		6.1.3. [O que é injeção de dependência?](#dip3)
+		6.1.4. [Qual a relação entre inversão de dependência, inversão de controle e injeção de dependência?](#dip4)
 
 *******
 
@@ -464,3 +469,34 @@ public class IdentificaCliente implements Identificador{
 ```
 
 Enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência. Essa mudança soluciona a DIP e permite a reutilização da classe ControleAcesso.
+	
+<div id='dip0'/>
+	
+### Discussoes
+	
+Com base nos dois artigos abaixo, será debatido algumas questões sobre o Princípio da Inversão de Dependencia (DIP)
+	
+<div id='dip1'/> 
+	
+#### O que é o princípio da inversão de dependência?
+	
+txt
+	
+<div id='dip2'/> 
+	
+#### O que é inversão de controle?
+	
+txt
+	
+<div id='dip3'/> 
+	
+#### O que é injeção de dependência? 
+	
+txt
+	
+<div id='dip4'/> 
+	
+#### Qual a relação entre inversão de dependência, inversão de controle e injeção de dependência? 
+	
+txt
+
