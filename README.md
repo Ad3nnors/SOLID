@@ -264,48 +264,62 @@ Considere os seguintes DAOs, ClientesDAO e ConsultasDAO.
 <div id='dip'/> 
 
 ```java
-package br.ufscar.dc.dsw.dao;
+import br.ufscar.dc.dsw.domain.Cliente;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.sql.Date;
+public class ClienteDAO extends GenericDAO {
 
-import br.ufscar.dc.dsw.domain.Clientes;
-
-public class ClientesDAO extends GenericDAO {
-
-	public void insert(Clientes cliente) throws Exception {
+	public void insert(Cliente cliente) throws Exception {
     		// implementação
 	}
     
-	public ArrayList<Clientes> getAll() {
+	public ArrayList<Cliente> getAll() {
 		// implementação
 	}
 
-	public void delete(Clientes cliente) {
+	public void delete(Cliente cliente) {
         	// implementação
 	}
 
-	public void update(Clientes cliente) {
+	public void update(Cliente cliente) {
 		// implementação
 	}
 
-	public Clientes get(Long id) {
+	public Cliente get(Long id) {
         	// implementação
 	}
     
-	public Clientes getbyID(Long id) {
+	public Cliente getbyID(Long id) {
         	// implementação
 	}
     
-	public Clientes getbyLogin(String login) {
+	public Cliente getbyLogin(String login) {
 		// implementação
 	}
 }
 ```
 
+```java
+import br.ufscar.dc.dsw.domain.Consulta;
 
+public class ConsultaDAO extends GenericDAO {
+	
+	public void insert(Consulta consulta) throws Exception {
+    		// implementação
+	}
+    
+	public void delete(Consulta consulta) {
+        	// implementação
+	}
+
+	public ArrayList<Consulta> getbyCliente(Long id) throws Exception {
+        	// implementação
+	}
+    
+	public ArrayList<Consulta> getbyProfissional(Long id) throws Exception {
+		// implementação
+	}
+}
+```
+Deseja-se criar uma interface para as classes DAO. Note que, apesar de ClientesDAO e ConsultasDAO possuírem alguns métodos em comum, há métodos exclusivos. Criar apenas uma interface genérica IDAO com a união dos métodos de ClientesDAO e ConsultasDAO faria com que essas classes herdassem os métodos uma das outras, inclusive os métodos que não utilizam, ocorrendo então a violação da ISP, conforme ilustrado abaixo.
+
+<img src="/img/imagem_2021-11-25_032306.png"/> 
