@@ -8,35 +8,35 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.sql.Date;
 
-import br.ufscar.dc.dsw.domain.Clientes;
+import br.ufscar.dc.dsw.domain.Cliente;
 
-public class ClientesDAO extends GenericDAO {
+public class ClienteDAO extends GenericDAO {
 
-	public void insert(Clientes cliente) throws Exception {
+	public void insert(Cliente cliente) throws Exception {
     		// implementação
 	}
     
-	public ArrayList<Clientes> getAll() {
+	public ArrayList<Cliente> getAll() {
 		// implementação
 	}
 
-	public void delete(Clientes cliente) {
+	public void delete(Cliente cliente) {
         	// implementação
 	}
 
-	public void update(Clientes cliente) {
+	public void update(Cliente cliente) {
 		// implementação
 	}
 
-	public Clientes get(Long id) {
+	public Cliente get(Long id) {
         	// implementação
 	}
     
-	public Clientes getbyID(Long id) {
+	public Cliente getbyID(Long id) {
         	// implementação
 	}
     
-	public Clientes getbyLogin(String login) {
+	public Cliente getbyLogin(String login) {
 		// implementação
 	}
 }
