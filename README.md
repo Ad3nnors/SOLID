@@ -134,7 +134,9 @@ public class ClienteDAO{
 
 Com essa nova organização, separa-se também os módulos do sistema. Assim, obtém-se uma melhor arquitetura de software. Observe essa representação do resultado utilizando a arquitetura em camadas:
 
+
 <img src="/img/imagem_2021-11-25_021520.png" alt="My cool logo"/>
+
 
 Sem aplicar o SRP não haveria segregação da camada de dados com a camada de aplicação. Isso implica em, para diferentes alterações, o mesmo módulo ser atualizado. Ou seja, ao inserir alguma modificação com um bug, o módulo inteiro poderia ser afetado. A divisão por responsabilidades elimina esse problema. Sendo assim, conclui-se que a utilização do SRP contribui para a manitenabilidade do sistema.
 
