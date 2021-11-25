@@ -404,13 +404,17 @@ public class ControleAcesso {
 		throw new AcessoNegadoException();
 	}
 }
-
+```
+	
+```java
 public class IdentificaCliente {
 	public boolean identificar() {
 		// codigo para identificar cliente
 	}
 }
- 
+```
+	
+```java
 public class identificarAdmin : IdentificaService {
 	@Override
 	public boolean identificar() {
@@ -438,21 +442,18 @@ public class ControleAcesso {
 		throw new AcessoNegadoException();
 	}
 }
-
+```
+	
+```java
 interface Identificador(){
         public boolean identificar() {}
 }
-  
+```
+	
+```java
 public class IdentificaCliente implements Identificador{
 	public boolean identificar() {
 		// codigo para identificar cliente
-	}
-}
- 
-public class identificarAdmin : IdentificaService {
-	@Override
-	public boolean identificar() {
-		// codigo para identificar admin
 	}
 }
 ```
