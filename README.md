@@ -3,7 +3,7 @@
 Cada letra da palavra SOLID corresponde a um princípio de design de classes. Ou seja, não se trata de regras, e sim boas práticas que levam a um código melhor. Esse artigo buscará explicar cada um desses princípios e fazer análise de exemplos.
 
 *******
-Tabela de conteúdo 
+Tabela de conteúdo:
  1. [Single Responsibility Principle (SRP)](#srp)
  2. [Open-Closed Principle (OCP)](#ocp)
  3. [Liskov Substitution Principle (LSP)](#lsp)
@@ -141,6 +141,71 @@ Sem aplicar o SRP não haveria segregação da camada de dados com a camada de a
 <div id='ocp'/> 
 
 ## Open-Closed Principle (OCP)
+
+Esse princípio diz que classes (módulos, entidades, etc.) devem ser abertos para extensão e fechados para modificação. 
+Os princípios SOLID possuem muita comunicação entre si. Perceba que ao aplicar o SRP, fecha-se o módulo para modificação, conforme dita também o OCP. 
+Para compreender melhor esse princípio, considere o exemplo abaixo:
+
+```java
+public class IdentificaService {
+	private String tipo;
+}
+ 
+public class IdentificaCliente : IdentificaService {
+	public void identificarCliente() {
+		// codigo para identificar cliente
+	}
+}
+ 
+public class identificarAdmin : IdentificaService {
+	public void identificarAdmin() {
+		// codigo para identificar admin
+	}
+}
+```
+Nesse exemplo, define-se que a identificação de admin é diferente da identificação de cliente. IdentificaCliente e IdentificaAdmin são especializações da classe IdentificaService. A variável tipo é responsável por guardar qual o tipo de identificação que deve ser realizado por esse identificador. Sendo assim. a implementação fica da seguinte maneira:
+
+```java
+public void identificaUsuario() {
+	if (tipo.equals("Cliente"))
+			this.identificarCliente();
+    	else if (tipo.equals("Admin"))
+    		this.identificarAdmin();
+}
+```
+
+Suponha que a empresa dona desse sistema contratou um serviço que funciona na nuvem, e agora deve ser implementado um novo tipo de identificador para um novo tipo de usuário, que fica hospedado na nuvem.
+Seria então necessário criar mais um else-if na implementação. O problema em adicionar mais if’s é que existem outras partes da aplicação que também fazem essa verificação para invocar métodos específicos de cada classe. Além dessa adição modificar mais de um componente, qualquer mudança posterior poderia gerar um efeito em cascata (necessitando cada vez de mais mudança). Todos esses problemas evidenciam que esse design não é nem fechado para modificações nem aberto para extensão.
+Alterando o código para atender à OCP, obtém o seguinte resultado:
+
+```java
+public abstract class IdentificaService {
+	public abstract void identificar();
+}
+ 
+public class IdentificaCliente : IdentificaService {
+	@Override
+    public void identificar() {
+        // codigo para identificar cliente
+    }
+}
+ 
+public class identificarAdmin : IdentificaService {
+	@Override
+    public void identificar() {
+        // codigo para identificar admin
+    }
+}
+ 
+public class Identificador {
+   public void identificaUsuario(IdentificaService serv) {
+        serv.identificar();
+}
+```
+IdentificaService passa a ser uma entidade abstrata, visto que não é necessário instanciá-la. É criado um método abstrato que será responsável pela dentificação, identificar(). Para cada forma de identificação, define-se uma implementação da abstração. Cada classe que implementa a classe abstrata sobrescreve a função identificar().
+Agora, sempre que surgir um novo meio de identificação, não será necessário adicionar nenhum if.
+
+<img src="/img/imagem_2021-11-25_024416.png" alt="My cool logo"/>
 
 <div id='lsp'/>
 
