@@ -1,16 +1,23 @@
 # SOLID
 
-Cada letra da palavra SOLID corresponde a um princípio de design de classes. Ou seja, não se trata de regras, e sim boas práticas que levam a um código melhor. Esse artigo buscará explicar cada um desses princípios e fazer análise de exemplos.
+Trabalho final de Programação Orientada a Objetos Avançada (POOA), matéria ministrada por professor Delano.
+Autor: Anderson Henrique Giacomini RA: 769720
 
 *******
 Tabela de conteúdo:
- 1. [Single Responsibility Principle (SRP)](#srp)
- 2. [Open-Closed Principle (OCP)](#ocp)
- 3. [Liskov Substitution Principle (LSP)](#lsp)
- 4. [Interface Segregation Principle (ISP)](#isp)
- 5. [Dependency Inversion Principle (DIP)](#dip)
+ 1. [O que é SOLID?](#solid)
+ 2. [Single Responsibility Principle (SRP)](#srp)
+ 3. [Open-Closed Principle (OCP)](#ocp)
+ 4. [Liskov Substitution Principle (LSP)](#lsp)
+ 5. [Interface Segregation Principle (ISP)](#isp)
+ 6. [Dependency Inversion Principle (DIP)](#dip)
 
 *******
+
+<div id='solid'>
+
+Cada letra da palavra SOLID corresponde a um princípio de design de classes. Ou seja, não se trata de regras, e sim boas práticas que levam a um código melhor. Esse artigo buscará explicar cada um desses princípios e fazer análise de exemplos.
+
 <div id='srp'/>  
 
 ## Single Responsibility Principle (SRP)
@@ -382,8 +389,70 @@ Considere o mesmo problema de identificação abordado acima, que trata Identifi
 
 Diferentemente do exemplo anterior, neste, IdentificaAdmin implementa IdentificaCliente, que é uma ferramenta de ControleAcesso.
 Há uma relação direta entre ControleAcesso e IdentificaCliente, ou seja, um módulo de alto nível depende de um módulo de baixo nível, ocorrendo a violação do DIP. Em outras palavras, toda vez que se desejar utilizar a classe ControleAcesso, a classe IdentificaCliente terá que vir junto. 
+
+```java
+public class ControleAcesso {
+	private **IDentificaCliente** service;
+	
+	public controlaAcesso(IdentificaCliente service){
+		this.service = service;
+	}
+	
+	Pessoa login(Pessoa p){
+		if (service.isValid(p))
+			return p;
+		throw new AcessoNegadoException();
+	}
+}
+
+public class IdentificaCliente {
+	public boolean identificar() {
+		// codigo para identificar cliente
+	}
+}
+ 
+public class identificarAdmin : IdentificaService {
+	@Override
+	public boolean identificar() {
+		// codigo para identificar admin
+	}
+}
+```
 Para resolver esse problema, cria-se a interface Identificador. 
 
 <img src="/img/imagem_2021-11-25_122822.png"/> 
+
+```java
+public class ControleAcesso {
+	private Identificador service;
+	
+	public controlaAcesso(Identificador service){
+		this.service = service;
+	}
+	
+	Pessoa login(Pessoa p){
+		if (service.isValid(p))
+			return p;
+		throw new AcessoNegadoException();
+	}
+}
+
+interface Identificador(){
+        public boolean identificar() {}
+}
+  
+public class IdentificaCliente implements Identificador{
+	public boolean identificar() {
+		// codigo para identificar cliente
+	}
+}
+ 
+public class identificarAdmin : IdentificaService {
+	@Override
+	public boolean identificar() {
+		// codigo para identificar admin
+	}
+}
+```
 
 Enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência que permite a reutilização da classe ControleAcesso.
