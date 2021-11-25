@@ -428,6 +428,8 @@ Para resolver esse problema, cria-se a interface Identificador.
 
 <img src="/img/imagem_2021-11-25_122822.png"/> 
 
+Agora ControleAcesso acessa a interface, que é implementada pela classe IdentificaCliente.
+
 ```java
 public class ControleAcesso {
 	private Identificador service;
@@ -458,4 +460,4 @@ public class IdentificaCliente implements Identificador{
 }
 ```
 
-Agora ControleAcesso acessa a interface, que é implementada pela classe IdentificaCliente. Assim, enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência. Essa mudança soluciona a DIP e permite a reutilização da classe ControleAcesso.
+Enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência. Essa mudança soluciona a DIP e permite a reutilização da classe ControleAcesso.
