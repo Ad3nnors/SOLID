@@ -152,26 +152,27 @@ public class IdentificaService {
 }
  
 public class IdentificaCliente : IdentificaService {
-	public void identificarCliente() {
-		// codigo para identificar cliente
-	}
+    public boolean identificarCliente() {
+        // codigo para identificar cliente
+    }
 }
  
 public class identificarAdmin : IdentificaService {
-	public void identificarAdmin() {
-		// codigo para identificar admin
-	}
+    public boolean identificarAdmin() {
+        // codigo para identificar admin
+    }
 }
+
 ```
 
 Nesse exemplo, define-se que a identificação de admin é diferente da identificação de cliente. IdentificaCliente e IdentificaAdmin são especializações da classe IdentificaService. A variável tipo é responsável por guardar qual o tipo de identificação que deve ser realizado por esse identificador. Sendo assim. a implementação fica da seguinte maneira:
 
 ```java
-public void identificaUsuario() {
+public boolean identificaUsuario() {
 	if (tipo.equals("Cliente"))
-			this.identificarCliente();
+		return identificarCliente();
     	else if (tipo.equals("Admin"))
-    		this.identificarAdmin();
+    		return identificarAdmin();
 }
 ```
 
@@ -181,26 +182,21 @@ Alterando o código para atender à OCP, obtém o seguinte resultado:
 
 ```java
 public abstract class IdentificaService {
-	public abstract void identificar();
+	public abstract boolean identificar();
 }
  
 public class IdentificaCliente : IdentificaService {
 	@Override
-    public void identificar() {
+    public boolean identificar() {
         // codigo para identificar cliente
     }
 }
  
 public class identificarAdmin : IdentificaService {
 	@Override
-    public void identificar() {
+    public boolean identificar() {
         // codigo para identificar admin
     }
-}
- 
-public class Identificador {
-   public void identificaUsuario(IdentificaService serv) {
-        serv.identificar();
 }
 ```
 
