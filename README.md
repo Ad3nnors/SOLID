@@ -18,7 +18,7 @@ Tabela de conteúdo:
 Esse princípio diz que uma classe deve ter uma única razão para mudar.
 Considere a classe Cliente abaixo:
 
-*domain.Cliente*:
+**domain.Cliente**:
 
 ```java
 public class Cliente{
@@ -145,7 +145,6 @@ Sem aplicar o SRP não haveria segregação da camada de dados com a camada de a
 Esse princípio diz que classes (módulos, entidades, etc.) devem ser abertos para extensão e fechados para modificação. 
 Os princípios SOLID possuem muita comunicação entre si. Perceba que ao aplicar o SRP, fecha-se o módulo para modificação, conforme dita também o OCP. 
 Para compreender melhor esse princípio, considere o exemplo abaixo:
-
 
 ```java
 public class IdentificaService {
@@ -385,3 +384,10 @@ Considere o mesmo problema de identificação abordado acima, que trata Identifi
 
 <img src="/img/imagem_2021-11-25_102259.png"/> 
 
+Diferentemente do exemplo anterior, neste, IdentificaAdmin implementa IdentificaCliente, que é uma ferramenta de ControleAcesso.
+Há uma relação direta entre ControleAcesso e IdentificaCliente, ou seja, um módulo de alto nível depende de um módulo de baixo nível, ocorrendo a violação do DIP. Em outras palavras, toda vez que se desejar utilizar a classe ControleAcesso, a classe IdentificaCliente terá que vir junto. 
+Para resolver esse problema, cria-se a interface Identificador. 
+
+<img src="/img/imagem_2021-11-25_103037.png"/> 
+
+Enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência que permite a reutilização da classe ControleAcesso.
