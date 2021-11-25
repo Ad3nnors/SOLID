@@ -426,6 +426,7 @@ public class identificarAdmin : IdentificaService {
 ```
 	
 Note o acesso direto em: private **IDentificaCliente** service;
+
 Para resolver esse problema, cria-se a interface Identificador. 
 
 <img src="/img/imagem_2021-11-25_122822.png"/> 
