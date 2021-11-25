@@ -323,3 +323,9 @@ public class ConsultaDAO extends GenericDAO {
 Deseja-se criar uma interface para as classes DAO. Note que, apesar de ClientesDAO e ConsultasDAO possuírem alguns métodos em comum, há métodos exclusivos. Criar apenas uma interface genérica IDAO com a união dos métodos de ClientesDAO e ConsultasDAO faria com que essas classes herdassem os métodos uma das outras, inclusive os métodos que não utilizam, ocorrendo então a violação da ISP, conforme ilustrado abaixo.
 
 <img src="/img/imagem_2021-11-25_032306.png"/> 
+
+Observe que a classe ClientesDAO tem acesso porém não utiliza métodos da classe ConsultasDAO, por ter sido criado uma interface genérica. 
+A solução é criar uma interface para cada DAO, com seus respectivos métodos. Assim, não há herança de métodos inutilizados.
+
+<img src="/img/imagem_2021-11-25_032856.png"/> 
+
