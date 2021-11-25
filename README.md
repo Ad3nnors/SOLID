@@ -215,7 +215,7 @@ Agora, sempre que surgir um novo meio de identificação, não será necessário
 ## Liskov Substitution Principle (LSP)
 
 Esse princípio diz que deve haver a possibilidade de se substituir a classe base pela sua classe derivada sem alterar o correto funcionamento do software. Ou seja, a classe filha não pode ser nem mais forte nem mais fraca do que a classe pai, e vice-versa. 
-Considere o mesmo problema de identificação abordado acima, que trata IdentificaAdmin como uma especialização de IdentificaCliente. 
+Considere esse novo design para uma etapa de identificação:
 
 <img src="/img/imagem_2021-11-25_024920.png"/>
 
@@ -381,5 +381,7 @@ O Princípio de Inversão de Dependência traz duas regras:
 
 Mas o que é um módulo de alto nível?
 Robert Martin define que módulo de alto nível são as classes que executam algo utilizando alguma ferramenta e módulo de baixo nível são essas ferramentas. Ou seja, os módulos de alto nível costumam mudar mais do que os de baixo.
-Considere esse novo design para uma etapa de identificação:
+Considere o mesmo problema de identificação abordado acima, que trata IdentificaAdmin como uma especialização de IdentificaCliente. 
+
+<img src="/img/imagem_2021-11-25_102259.png"/> 
 
