@@ -1,20 +1,17 @@
 public abstract class IdentificaService {
-	public abstract void identificar();
-	
-	public void identificaUsuario() {
-		this.identificar();
+	public abstract boolean identificar();
 }
  
 public class IdentificaCliente : IdentificaService {
 	@Override
-    public void identificar() {
+    public boolean identificar() {
         // codigo para identificar cliente
     }
 }
  
 public class identificarAdmin : IdentificaService {
 	@Override
-    public void identificar() {
+    public boolean identificar() {
         // codigo para identificar admin
     }
 }
