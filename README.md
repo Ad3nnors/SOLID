@@ -392,7 +392,7 @@ Há uma relação direta entre ControleAcesso e IdentificaCliente, ou seja, um m
 
 ```java
 public class ControleAcesso {
-	private **IDentificaCliente** service;
+	private IDentificaCliente service;
 	
 	public controlaAcesso(IdentificaCliente service){
 		this.service = service;
@@ -418,6 +418,8 @@ public class identificarAdmin : IdentificaService {
 	}
 }
 ```
+	
+Note o acesso direto em: private **IDentificaCliente** service;
 Para resolver esse problema, cria-se a interface Identificador. 
 
 <img src="/img/imagem_2021-11-25_122822.png"/> 
@@ -455,4 +457,4 @@ public class identificarAdmin : IdentificaService {
 }
 ```
 
-Enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência que permite a reutilização da classe ControleAcesso.
+Agora ControleAcesso acessa a interface, que é implementada pela classe IdentificaCliente. Assim, enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência. Essa mudança soluciona a DIP e permite a reutilização da classe ControleAcesso.
