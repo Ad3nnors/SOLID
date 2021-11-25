@@ -203,7 +203,7 @@ public class identificarAdmin : IdentificaService {
 IdentificaService passa a ser uma entidade abstrata, visto que não é necessário instanciá-la. É criado um método abstrato que será responsável pela dentificação, identificar(). Para cada forma de identificação, define-se uma implementação da abstração. Cada classe que implementa a classe abstrata sobrescreve a função identificar().
 Agora, sempre que surgir um novo meio de identificação, não será necessário adicionar nenhum if.
 
-<img src="/img/imagem_2021-11-25_024416.png"/>
+<img src="/img/imagem_2021-11-25_105111.png"/>
 
 <div id='lsp'/>
 
@@ -378,12 +378,12 @@ Mas o que é um módulo de alto nível?
 Robert Martin define que módulo de alto nível são as classes que executam algo utilizando alguma ferramenta e módulo de baixo nível são essas ferramentas. Ou seja, os módulos de alto nível costumam mudar mais do que os de baixo.
 Considere o mesmo problema de identificação abordado acima, que trata IdentificaAdmin como uma especialização de IdentificaCliente. 
 
-<img src="/img/imagem_2021-11-25_102259.png"/> 
+<img src="/img/imagem_2021-11-25_110955.png"/> 
 
 Diferentemente do exemplo anterior, neste, IdentificaAdmin implementa IdentificaCliente, que é uma ferramenta de ControleAcesso.
 Há uma relação direta entre ControleAcesso e IdentificaCliente, ou seja, um módulo de alto nível depende de um módulo de baixo nível, ocorrendo a violação do DIP. Em outras palavras, toda vez que se desejar utilizar a classe ControleAcesso, a classe IdentificaCliente terá que vir junto. 
 Para resolver esse problema, cria-se a interface Identificador. 
 
-<img src="/img/imagem_2021-11-25_103037.png"/> 
+<img src="/img/imagem_2021-11-25_112929.png"/> 
 
 Enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência que permite a reutilização da classe ControleAcesso.
