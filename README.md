@@ -259,7 +259,7 @@ A classe filha, então, é mais fraca do que a classe pai, violando o LSP. Como 
 Esse princípio diz que clientes não devem depender de interfaces que não utilizam. Ou seja, muitas interfaces específicas são melhores do que uma interface mais genérica.
 Considere os seguintes DAOs, ClientesDAO e ConsultasDAO.
 
-<img src="/img/imagem_2021-11-25_030126.png"/>
+<img src="/img/imagem_2021-11-25_032653.png"/>
 
 <div id='dip'/> 
 
