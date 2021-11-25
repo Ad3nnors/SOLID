@@ -13,6 +13,7 @@ Tabela de conteúdo:
  6. [Dependency Inversion Principle (DIP)](#dip)
  	
 	[Discussões](#dip0)
+	
 	6.1. [O que é o princípio da inversão de dependência?](#dip1)
 	6.2. [O que é inversão de controle?](#dip2)
 	6.3. [O que é injeção de dependência?](#dip3)
