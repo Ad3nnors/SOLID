@@ -73,7 +73,7 @@ public class Cliente{
 Deseja-se armazenar uma nova informação sobre os clientes: o e-mail. Esse é um motivo para a Classe mudar, pois ela é uma entidade do sistema. Outra mudança poderia ser: antes de inserir o cliente no banco de dados, adicionar uma verificação se já há cadastrado cliente com o mesmo cpf. Apenas com esses dois exemplos, já é possível identificar duas responsabilidades em uma mesma classe: representar a entidade e armazenar os dados no banco. Sendo assim, essa classe não está de acordo com o SRP.
 Uma solução para adequar esse exemplo a SRP é dividir essa classe em duas: uma classe entidade e uma DAO (Data Access Object). A DAO funciona como uma ponte entre a entidade do sistema e o banco de dados, ela que ficará responsável por essa comunicação.
 
-*domain.Cliente*:
+**domain.Cliente**:
 
 ```java
 public class Cliente{
@@ -88,7 +88,7 @@ public class Cliente{
 }
 ```
 
-*dao.ClienteDAO*:
+**dao.ClienteDAO**:
 
 ```java
 import Solução.domain.Cliente;
@@ -145,6 +145,7 @@ Sem aplicar o SRP não haveria segregação da camada de dados com a camada de a
 Esse princípio diz que classes (módulos, entidades, etc.) devem ser abertos para extensão e fechados para modificação. 
 Os princípios SOLID possuem muita comunicação entre si. Perceba que ao aplicar o SRP, fecha-se o módulo para modificação, conforme dita também o OCP. 
 Para compreender melhor esse princípio, considere o exemplo abaixo:
+
 
 ```java
 public class IdentificaService {
@@ -208,6 +209,14 @@ Agora, sempre que surgir um novo meio de identificação, não será necessário
 <img src="/img/imagem_2021-11-25_024416.png" alt="My cool logo"/>
 
 <div id='lsp'/>
+
+## Liskov Substitution Principle (LSP)
+
+Esse princípio diz que deve haver a possibilidade de se substituir a classe base pela sua classe derivada sem alterar o correto funcionamento do software. Ou seja, a classe filha não pode ser nem mais forte nem mais fraca do que a classe pai, e vice-versa. 
+Considere o mesmo problema de identificação abordado acima, que trata IdentificaAdmin como uma especialização de IdentificaCliente. 
+
+
+<img src="/img/imagem_2021-11-25_024920.png" alt="My cool logo"/>
 
 <div id='isp'/>
 
