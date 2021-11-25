@@ -378,6 +378,7 @@ O Princípio de Inversão de Dependência traz duas regras:
 > Módulos de alto nível não devem depender de módulos de baixo nível, ambos devem depender de abstrações.
 
 > Abstrações não devem depender de detalhes, detalhes que devem depender de abstrações.
+
 Mas o que é um módulo de alto nível?
 Robert Martin define que módulo de alto nível são as classes que executam algo utilizando alguma ferramenta e módulo de baixo nível são essas ferramentas. Ou seja, os módulos de alto nível costumam mudar mais do que os de baixo.
 Considere esse novo design para uma etapa de identificação:
