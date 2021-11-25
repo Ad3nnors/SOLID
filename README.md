@@ -164,6 +164,7 @@ public class identificarAdmin : IdentificaService {
 	}
 }
 ```
+
 Nesse exemplo, define-se que a identificação de admin é diferente da identificação de cliente. IdentificaCliente e IdentificaAdmin são especializações da classe IdentificaService. A variável tipo é responsável por guardar qual o tipo de identificação que deve ser realizado por esse identificador. Sendo assim. a implementação fica da seguinte maneira:
 
 ```java
@@ -203,6 +204,7 @@ public class Identificador {
         serv.identificar();
 }
 ```
+
 IdentificaService passa a ser uma entidade abstrata, visto que não é necessário instanciá-la. É criado um método abstrato que será responsável pela dentificação, identificar(). Para cada forma de identificação, define-se uma implementação da abstração. Cada classe que implementa a classe abstrata sobrescreve a função identificar().
 Agora, sempre que surgir um novo meio de identificação, não será necessário adicionar nenhum if.
 
@@ -215,8 +217,38 @@ Agora, sempre que surgir um novo meio de identificação, não será necessário
 Esse princípio diz que deve haver a possibilidade de se substituir a classe base pela sua classe derivada sem alterar o correto funcionamento do software. Ou seja, a classe filha não pode ser nem mais forte nem mais fraca do que a classe pai, e vice-versa. 
 Considere o mesmo problema de identificação abordado acima, que trata IdentificaAdmin como uma especialização de IdentificaCliente. 
 
-
 <img src="/img/imagem_2021-11-25_024920.png" alt="My cool logo"/>
+
+Essa abordagem funciona. Porém, no exemplo abaixo, note que nas linhas 15 e 16 uma nova funcionalidade é adicionada. Todo dia às 4h o sistema entra em manutenção. Neste momento, as tentativas de identificação devem retornar uma HoraManutencaoException. 
+
+```java
+import java.util.Calendar;
+
+public class IdentificaService {
+	private String tipo;
+	
+	public void identificaUsuario() {
+		if (tipo.equals("Cliente"))
+			this.identificarCliente();
+    	else if (tipo.equals("Admin"))
+    		this.identificarAdmin();
+	}
+}
+ 
+public class IdentificaCliente {
+	if (Calendar.getInstance().get(Calendar.HOUR).equals(4))
+		throw new HoraManutencaoException();
+	public void identificar() {
+		// codigo para identificar cliente
+	}
+}
+ 
+public class identificarAdmin : IdentificaCliente {
+	public void identificar() {
+		// codigo para identificar admin
+	}
+}
+```
 
 <div id='isp'/>
 
