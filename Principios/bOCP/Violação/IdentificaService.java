@@ -1,22 +1,22 @@
 public class IdentificaService {
 	private String tipo;
 	
-	public void identificaUsuario() {
+	public boolean identificaUsuario() {
 		if (tipo.equals("Cliente"))
-			this.identificarCliente();
+			return identificarCliente();
     	else if (tipo.equals("Admin"))
-    		this.identificarAdmin();
+    		return identificarAdmin();
 	}
 }
  
 public class IdentificaCliente : IdentificaService {
-    public void identificarCliente() {
+    public boolean identificarCliente() {
         // codigo para identificar cliente
     }
 }
  
 public class identificarAdmin : IdentificaService {
-    public void identificarAdmin() {
+    public boolean identificarAdmin() {
         // codigo para identificar admin
     }
 }
