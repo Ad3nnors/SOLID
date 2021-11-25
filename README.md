@@ -12,6 +12,7 @@ Tabela de conteúdo
 
 *******
 <div id='srp'/>  
+
 ## Single Responsibility Principle (SRP)
 
 Esse princípio diz que uma classe deve ter uma única razão para mudar.
@@ -138,6 +139,7 @@ Com essa nova organização, separa-se também os módulos do sistema. Assim, ob
 Sem aplicar o SRP não haveria segregação da camada de dados com a camada de aplicação. Isso implica em, para diferentes alterações, o mesmo módulo ser atualizado. Ou seja, ao inserir alguma modificação com um bug, o módulo inteiro poderia ser afetado. A divisão por responsabilidades elimina esse problema. Sendo assim, conclui-se que a utilização do SRP contribui para a manitenabilidade do sistema.
 
 <div id='ocp'/> 
+
 ## Open-Closed Principle (OCP)
 
 <div id='lsp'/>
