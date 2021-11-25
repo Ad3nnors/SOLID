@@ -123,3 +123,4 @@ public class ClienteDAO{
 
 Com essa nova organização, separa-se também os módulos do sistema. Assim, obtém-se uma melhor arquitetura de software. Observe essa representação do resultado utilizando a arquitetura em camadas:
 
+![alt text](https://github.com/Ad3nnors/SOLID/tree/main/img/imagem_2021-11-25_021520.png "Logo Title Text 1")
