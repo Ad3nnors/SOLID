@@ -481,8 +481,7 @@ Enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCli
 	
 Com base nos dois artigos abaixo, será debatido algumas questões sobre o Princípio da Inversão de Dependencia (DIP).
 	
-	>Martin Fowler. Inversion of Control. martinfowler.com, 2005.
-	
+>Martin Fowler. Inversion of Control. martinfowler.com, 2005.
 https://martinfowler.com/bliki/InversionOfControl.html
 	
 >Martin Fowler. Inversion of Control Containers and the Dependency Injection pattern.
