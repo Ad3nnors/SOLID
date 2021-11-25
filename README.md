@@ -2,6 +2,16 @@
 
 Cada letra da palavra SOLID corresponde a um princípio de design de classes. Ou seja, não se trata de regras, e sim boas práticas que levam a um código melhor. Esse artigo buscará explicar cada um desses princípios e fazer análise de exemplos.
 
+*******
+Tabela de conteúdo 
+ 1. [Single Responsibility Principle (SRP)](#srp)
+ 2. [Open-Closed Principle (OCP)](#ocp)
+ 3. [Liskov Substitution Principle (LSP)](#lsp)
+ 4. [Interface Segregation Principle (ISP)](#isp)
+ 5. [Dependency Inversion Principle (DIP)](#dip)
+
+*******
+<div id='srp'/>  
 ## Single Responsibility Principle (SRP)
 
 Esse princípio diz que uma classe deve ter uma única razão para mudar.
@@ -124,3 +134,14 @@ public class ClienteDAO{
 Com essa nova organização, separa-se também os módulos do sistema. Assim, obtém-se uma melhor arquitetura de software. Observe essa representação do resultado utilizando a arquitetura em camadas:
 
 <img src="/img/imagem_2021-11-25_021520.png" alt="My cool logo"/>
+
+Sem aplicar o SRP não haveria segregação da camada de dados com a camada de aplicação. Isso implica em, para diferentes alterações, o mesmo módulo ser atualizado. Ou seja, ao inserir alguma modificação com um bug, o módulo inteiro poderia ser afetado. A divisão por responsabilidades elimina esse problema. Sendo assim, conclui-se que a utilização do SRP contribui para a manitenabilidade do sistema.
+
+<div id='ocp'/> 
+## Open-Closed Principle (OCP)
+
+<div id='lsp'/>
+
+<div id='isp'/>
+
+<div id='dip'/> 
