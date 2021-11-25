@@ -327,8 +327,57 @@ A solução é criar uma interface para cada DAO, com seus respectivos métodos.
 
 <img src="/img/imagem_2021-11-25_033530.png"/> 
 
-**dao.ClienteDAO
+**dao.IClienteDAO**
+```java
+import br.ufscar.dc.dsw.domain.Cliente;
+
+public interface IClienteDAO extends CrudRepository<Cliente, Long> {
+	Cliente findById(long id);
+
+	Cliente findBycpf(String cpf);
+
+	List<Cliente> findAll();
+
+	Cliente save(Cliente cliente);
+
+	void deleteById(Long id);
+}
+```
+
+**dao.IConsultaDAO**
+```java
+import br.ufscar.dc.dsw.domain.Cliente;
+import br.ufscar.dc.dsw.domain.Consulta;
+import br.ufscar.dc.dsw.domain.Pessoa;
+import br.ufscar.dc.dsw.domain.Profissional;
+
+public interface IConsultaDAO extends CrudRepository<Consulta, Long> {
+	Consulta findById(long id);
+
+	List<Consulta> findAll();
+
+	Consulta save(Consulta consulta);
+
+	void deleteById(Long id);
+	
+	List<Consulta> findAllByProfissional(Profissional u);
+
+	List<Consulta> findAllByCliente(Cliente cli);
+	
+	Consulta findByProfissionalAndDataHora(Profissional profissional, String dataHora);
+
+	Consulta findByClienteAndDataHora(Cliente cliente, String dataHora);
+}
+```
 
 <div id='dip'/> 
 
 ## Dependency Inversion Principle (DIP)
+
+O Princípio de Inversão de Dependência traz duas regras: 
+> Módulos de alto nível não devem depender de módulos de baixo nível, ambos devem depender de abstrações.
+> Abstrações não devem depender de detalhes, detalhes que devem depender de abstrações.
+Mas o que é um módulo de alto nível?
+Robert Martin define que módulo de alto nível são as classes que executam algo utilizando alguma ferramenta e módulo de baixo nível são essas ferramentas. Ou seja, os módulos de alto nível costumam mudar mais do que os de baixo.
+Considere esse novo design para uma etapa de identificação:
+
