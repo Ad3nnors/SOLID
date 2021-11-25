@@ -18,8 +18,3 @@ public class identificarAdmin : IdentificaService {
         // codigo para identificar admin
     }
 }
- 
-public class Identificador {
-   public void identificaUsuario(IdentificaService serv) {
-        serv.identificar();
-}
