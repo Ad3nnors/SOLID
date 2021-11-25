@@ -327,7 +327,7 @@ A solução é criar uma interface para cada DAO, com seus respectivos métodos.
 
 <img src="/img/imagem_2021-11-25_033530.png"/> 
 
-**dao.IClienteDAO**
+**dao.IClienteDAO**:
 ```java
 import br.ufscar.dc.dsw.domain.Cliente;
 
@@ -344,7 +344,7 @@ public interface IClienteDAO extends CrudRepository<Cliente, Long> {
 }
 ```
 
-**dao.IConsultaDAO**
+**dao.IConsultaDAO**:
 ```java
 import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.domain.Consulta;
