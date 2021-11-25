@@ -134,9 +134,7 @@ public class ClienteDAO{
 
 Com essa nova organização, separa-se também os módulos do sistema. Assim, obtém-se uma melhor arquitetura de software. Observe essa representação do resultado utilizando a arquitetura em camadas:
 
-
 <img src="/img/imagem_2021-11-25_021520.png" alt="My cool logo"/>
-
 
 Sem aplicar o SRP não haveria segregação da camada de dados com a camada de aplicação. Isso implica em, para diferentes alterações, o mesmo módulo ser atualizado. Ou seja, ao inserir alguma modificação com um bug, o módulo inteiro poderia ser afetado. A divisão por responsabilidades elimina esse problema. Sendo assim, conclui-se que a utilização do SRP contribui para a manitenabilidade do sistema.
 
@@ -252,6 +250,62 @@ public class identificarAdmin : IdentificaCliente {
 }
 ```
 
+A classe filha, então, é mais fraca do que a classe pai, violando o LSP. Como a exceção foi implementada apenas na classe pai, um exemplo de problema que pode vir dessa violação é a identificação de administradores mesmo no horário de manutenção. 
+
 <div id='isp'/>
 
+## Interface Segregation Principle (ISP)
+
+Esse princípio diz que clientes não devem depender de interfaces que não utilizam. Ou seja, muitas interfaces específicas são melhores do que uma interface mais genérica.
+Considere os seguintes DAOs, ClientesDAO e ConsultasDAO.
+
+<img src="/img/imagem_2021-11-25_030126.png" alt="My cool logo"/>
+
 <div id='dip'/> 
+
+```java
+package br.ufscar.dc.dsw.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.sql.Date;
+
+import br.ufscar.dc.dsw.domain.Clientes;
+
+public class ClientesDAO extends GenericDAO {
+
+	public void insert(Clientes cliente) throws Exception {
+    		// implementação
+	}
+    
+	public ArrayList<Clientes> getAll() {
+		// implementação
+	}
+
+	public void delete(Clientes cliente) {
+        	// implementação
+	}
+
+	public void update(Clientes cliente) {
+		// implementação
+	}
+
+	public Clientes get(Long id) {
+        	// implementação
+	}
+    
+	public Clientes getbyID(Long id) {
+        	// implementação
+	}
+    
+	public Clientes getbyLogin(String login) {
+		// implementação
+	}
+}
+```
+
+
