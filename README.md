@@ -11,9 +11,7 @@ Tabela de conteúdo:
  4. [Liskov Substitution Principle (LSP)](#lsp)
  5. [Interface Segregation Principle (ISP)](#isp)
  6. [Dependency Inversion Principle (DIP)](#dip)
- 	
-	[Discussões](#dip0)
-	
+
 	6.1. [O que é inversão de controle? O que é injeção de dependência? Qual a relação entre inversão de dependência, inversão de controle e injeção de dependência?](#dip4)
 
 *******
@@ -374,10 +372,6 @@ public interface IConsultaDAO extends CrudRepository<Consulta, Long> {
 <div id='dip'/> 
 
 ## Dependency Inversion Principle (DIP)
-	
-<div id='dip1'/> 
-	
-#### O que é o princípio da inversão de dependência?
 
 O Princípio de Inversão de Dependência traz duas regras: 
 > Módulos de alto nível não devem depender de módulos de baixo nível, ambos devem depender de abstrações.
@@ -466,7 +460,6 @@ public class IdentificaCliente implements Identificador{
 
 Enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência. Essa mudança soluciona a DIP e permite a reutilização da classe ControleAcesso.
 	
-<div id='dip0'/>
 	
 ### Discussoes
 	
