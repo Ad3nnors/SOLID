@@ -217,7 +217,7 @@ public class identificarAdmin : IdentificaService {
 }
 ```
 
-IdentificaService passa a ser uma entidade abstrata, visto que não é necessário instanciá-la. É criado um método abstrato que será responsável pela dentificação, identificar(). Para cada forma de identificação, define-se uma implementação da abstração. Cada classe que implementa a classe abstrata sobrescreve a função identificar().
+IdentificaService passa a ser uma entidade abstrata, visto que não é necessário instanciá-la. É criado um método abstrato que será responsável pela identificação, identificar(). Para cada forma de identificação, define-se uma implementação da abstração. Cada classe que implementa a classe abstrata sobrescreve a função identificar().
 
 Agora, sempre que surgir um novo meio de identificação, não será necessário adicionar nenhum if.
 
