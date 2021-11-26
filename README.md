@@ -159,7 +159,7 @@ Sem aplicar o SRP não haveria segregação da camada de dados com a camada de a
 Esse princípio diz que classes (módulos, entidades, etc.) devem ser abertos para extensão e fechados para modificação. 
 Os princípios SOLID possuem muita comunicação entre si. Perceba que ao aplicar o SRP, fecha-se o módulo para modificação, conforme dita também o OCP. 
 
-Para compreender melhor esse princípio, considere o exemplo abaixo:
+Para compreender melhor o OCP, considere o exemplo abaixo:
 
 ```java
 public class IdentificaService {
