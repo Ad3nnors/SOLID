@@ -233,7 +233,7 @@ Considere esse novo design para uma etapa de identificação:
 
 <img src="/img/imagem_2021-11-25_024920.png"/>
 
-Essa abordagem funciona. Porém, no exemplo abaixo, note que nas linhas 15 e 16 uma nova funcionalidade é adicionada. Todo dia às 4h o sistema entra em manutenção. Neste momento, as tentativas de identificação devem retornar uma HoraManutencaoException. 
+Essa abordagem funciona. Porém, no exemplo abaixo, note que, na classe IdentificaCliente, uma nova funcionalidade é adicionada: todo dia às 4h o sistema entra em manutenção. Neste momento, as tentativas de identificação devem retornar uma HoraManutencaoException. 
 
 ```java
 import java.util.Calendar;
