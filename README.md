@@ -238,16 +238,20 @@ Essa abordagem funciona. Porém, no exemplo abaixo, note que nas linhas 15 e 16 
 ```java
 import java.util.Calendar;
  
-public class IdentificaCliente {
+public abstract class IdentificaService {
+	public abstract boolean identificar();
+}
+	
+public class IdentificaCliente : IdentificaService{
 	if (Calendar.getInstance().get(Calendar.HOUR).equals(4))
 		throw new HoraManutencaoException();
-	public void identificar() {
+	public boolean identificar() {
 		// codigo para identificar cliente
 	}
 }
  
 public class identificarAdmin : IdentificaCliente {
-	public void identificar() {
+	public boolean identificar() {
 		// codigo para identificar admin
 	}
 }
