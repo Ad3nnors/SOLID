@@ -237,17 +237,6 @@ Essa abordagem funciona. Porém, no exemplo abaixo, note que nas linhas 15 e 16 
 
 ```java
 import java.util.Calendar;
-
-public class IdentificaService {
-	private String tipo;
-	
-	public void identificaUsuario() {
-		if (tipo.equals("Cliente"))
-			this.identificarCliente();
-    	else if (tipo.equals("Admin"))
-    		this.identificarAdmin();
-	}
-}
  
 public class IdentificaCliente {
 	if (Calendar.getInstance().get(Calendar.HOUR).equals(4))
