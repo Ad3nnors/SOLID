@@ -229,7 +229,7 @@ Agora, sempre que surgir um novo meio de identificação, não será necessário
 
 Esse princípio diz que deve haver a possibilidade de se substituir a classe base pela sua classe derivada sem alterar o correto funcionamento do software. Ou seja, a classe filha não pode ser nem mais forte nem mais fraca do que a classe pai, e vice-versa. 
 
-Considere esse novo design para uma etapa de identificação:
+Considere esse novo design para uma etapa de identificação, em que IdentificaAdmin é uma especialização de IdentificaCliente:
 
 <img src="/img/imagem_2021-11-25_024920.png"/>
 
