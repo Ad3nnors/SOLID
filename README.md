@@ -180,7 +180,7 @@ public class identificarAdmin : IdentificaService {
 
 ```
 
-Nesse exemplo, define-se que a identificação de admin é diferente da identificação de cliente. IdentificaCliente e IdentificaAdmin são especializações da classe IdentificaService. A variável tipo é responsável por guardar qual o tipo de identificação que deve ser realizado por esse identificador. Sendo assim. a implementação fica da seguinte maneira:
+Nesse exemplo, define-se que a identificação de admin é diferente da identificação de cliente. IdentificaCliente e IdentificaAdmin são especializações da classe IdentificaService. A variável tipo é responsável por guardar qual o tipo de identificação que deve ser realizado. Sendo assim, a implementação fica da seguinte maneira:
 
 ```java
 public boolean identificaUsuario() {
