@@ -257,7 +257,7 @@ public class identificarAdmin : IdentificaCliente {
 }
 ```
 
-A classe filha, então, é mais fraca do que a classe pai, violando o LSP. Como a exceção foi implementada apenas na classe pai, um exemplo de problema que pode vir dessa violação é a identificação de administradores mesmo no horário de manutenção. 
+A classe filha, então, é mais fraca do que a classe pai, violando o LSP. Como a exceção foi implementada apenas na classe pai, um exemplo de problema que pode vir dessa violação é a identificação de administradores mesmo no horário de manutenção. Uma solução plausível para esse problema é a mesma que já foi aplicada no exemplo de OCP.
 
 <div id='isp'/>
 
