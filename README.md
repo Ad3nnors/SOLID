@@ -167,15 +167,15 @@ public class IdentificaService {
 }
  
 public class IdentificaCliente : IdentificaService {
-    public boolean identificarCliente() {
-        // codigo para identificar cliente
-    }
+	public boolean identificarCliente() {
+		// codigo para identificar cliente
+	}
 }
  
 public class identificarAdmin : IdentificaService {
-    public boolean identificarAdmin() {
-        // codigo para identificar admin
-    }
+	public boolean identificarAdmin() {
+		// codigo para identificar admin
+	}
 }
 
 ```
@@ -204,16 +204,16 @@ public abstract class IdentificaService {
  
 public class IdentificaCliente : IdentificaService {
 	@Override
-    public boolean identificar() {
-        // codigo para identificar cliente
-    }
+	public boolean identificar() {
+		// codigo para identificar cliente
+	}
 }
  
 public class identificarAdmin : IdentificaService {
 	@Override
-    public boolean identificar() {
-        // codigo para identificar admin
-    }
+	public boolean identificar() {
+		// codigo para identificar admin
+	}
 }
 ```
 
