@@ -28,6 +28,7 @@ Cada letra da palavra SOLID corresponde a um princípio de design de classes. Ou
 ## Single Responsibility Principle (SRP)
 
 Esse princípio diz que uma classe deve ter uma única razão para mudar.
+
 Considere a classe Cliente abaixo:
 
 **domain.Cliente**:
@@ -83,6 +84,7 @@ public class Cliente{
 ```
 
 Deseja-se armazenar uma nova informação sobre os clientes: o e-mail. Esse é um motivo para a Classe mudar, pois ela é uma entidade do sistema. Outra mudança poderia ser: antes de inserir o cliente no banco de dados, adicionar uma verificação se já há cadastrado cliente com o mesmo cpf. Apenas com esses dois exemplos, já é possível identificar duas responsabilidades em uma mesma classe: representar a entidade e armazenar os dados no banco. Sendo assim, essa classe não está de acordo com o SRP.
+
 Uma solução para adequar esse exemplo a SRP é dividir essa classe em duas: uma classe entidade e uma DAO (Data Access Object). A DAO funciona como uma ponte entre a entidade do sistema e o banco de dados, ela que ficará responsável por essa comunicação.
 
 **domain.Cliente**:
@@ -156,6 +158,7 @@ Sem aplicar o SRP não haveria segregação da camada de dados com a camada de a
 
 Esse princípio diz que classes (módulos, entidades, etc.) devem ser abertos para extensão e fechados para modificação. 
 Os princípios SOLID possuem muita comunicação entre si. Perceba que ao aplicar o SRP, fecha-se o módulo para modificação, conforme dita também o OCP. 
+
 Para compreender melhor esse princípio, considere o exemplo abaixo:
 
 ```java
@@ -189,7 +192,9 @@ public boolean identificaUsuario() {
 ```
 
 Suponha que a empresa dona desse sistema contratou um serviço que funciona na nuvem, e agora deve ser implementado um novo tipo de identificador para um novo tipo de usuário, que fica hospedado na nuvem.
+
 Seria então necessário criar mais um else-if na implementação. O problema em adicionar mais if’s é que existem outras partes da aplicação que também fazem essa verificação para invocar métodos específicos de cada classe. Além dessa adição modificar mais de um componente, qualquer mudança posterior poderia gerar um efeito em cascata (necessitando cada vez de mais mudança). Todos esses problemas evidenciam que esse design não é nem fechado para modificações nem aberto para extensão.
+
 Alterando o código para atender à OCP, obtém o seguinte resultado:
 
 ```java
@@ -213,6 +218,7 @@ public class identificarAdmin : IdentificaService {
 ```
 
 IdentificaService passa a ser uma entidade abstrata, visto que não é necessário instanciá-la. É criado um método abstrato que será responsável pela dentificação, identificar(). Para cada forma de identificação, define-se uma implementação da abstração. Cada classe que implementa a classe abstrata sobrescreve a função identificar().
+
 Agora, sempre que surgir um novo meio de identificação, não será necessário adicionar nenhum if.
 
 <img src="/img/imagem_2021-11-25_105111.png"/>
@@ -222,6 +228,7 @@ Agora, sempre que surgir um novo meio de identificação, não será necessário
 ## Liskov Substitution Principle (LSP)
 
 Esse princípio diz que deve haver a possibilidade de se substituir a classe base pela sua classe derivada sem alterar o correto funcionamento do software. Ou seja, a classe filha não pode ser nem mais forte nem mais fraca do que a classe pai, e vice-versa. 
+
 Considere esse novo design para uma etapa de identificação:
 
 <img src="/img/imagem_2021-11-25_024920.png"/>
@@ -257,6 +264,7 @@ A classe filha, então, é mais fraca do que a classe pai, violando o LSP. Como 
 ## Interface Segregation Principle (ISP)
 
 Esse princípio diz que clientes não devem depender de interfaces que não utilizam. Ou seja, muitas interfaces específicas são melhores do que uma interface mais genérica.
+
 Considere os seguintes DAOs, ClientesDAO e ConsultasDAO.
 
 <img src="/img/imagem_2021-11-25_033837.png"/>
@@ -323,6 +331,7 @@ Deseja-se criar uma interface para as classes DAO. Note que, apesar de ClientesD
 <img src="/img/imagem_2021-11-25_033656.png"/> 
 
 Observe que a classe ClientesDAO tem acesso porém não utiliza métodos da classe ConsultasDAO, por ter sido criado uma interface genérica. 
+
 A solução é criar uma interface para cada DAO, com seus respectivos métodos. Assim, não há herança de métodos inutilizados.
 
 <img src="/img/imagem_2021-11-25_033530.png"/> 
@@ -380,6 +389,7 @@ O Princípio de Inversão de Dependência traz duas regras:
 > Abstrações não devem depender de detalhes, detalhes que devem depender de abstrações.
 
 Mas o que é um módulo de alto nível?
+
 Robert Martin define que módulo de alto nível são as classes que executam algo utilizando alguma ferramenta e módulo de baixo nível são essas ferramentas. Ou seja, os módulos de alto nível costumam mudar mais do que os de baixo.
 Considere o mesmo problema de identificação abordado acima, que trata IdentificaAdmin como uma especialização de IdentificaCliente. 
 
