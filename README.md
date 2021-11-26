@@ -326,13 +326,13 @@ public class ConsultaDAO extends GenericDAO {
 	}
 }
 ```
-Deseja-se criar uma interface para as classes DAO. Note que, apesar de ClientesDAO e ConsultasDAO possuírem alguns métodos em comum, há métodos exclusivos. Criar apenas uma interface genérica IDAO com a união dos métodos de ClientesDAO e ConsultasDAO faria com que essas classes herdassem os métodos uma das outras, inclusive os métodos que não utilizam, ocorrendo então a violação da ISP, conforme ilustrado abaixo.
+É criado uma interface genérica IDAO. O problema encontrado é que é atribuído a IDAO métodos que não estão presentes em todas as implementações dessa interface, ou seja, ClientesDAO e ConsultasDAO herdam metodos que não serão implementados. Ocorrendo então a violação da ISP, conforme ilustrado abaixo.
 
 <img src="/img/imagem_2021-11-25_033656.png"/> 
 
 Observe que a classe ClientesDAO tem acesso porém não utiliza métodos da classe ConsultasDAO, por ter sido criado uma interface genérica. 
 
-A solução é criar uma interface para cada DAO, com seus respectivos métodos. Assim, não há herança de métodos inutilizados.
+A solução é criar uma interface para cada DAO com seus respectivos métodos, sem gerar herança de métodos inutilizados.
 
 <img src="/img/imagem_2021-11-25_033530.png"/> 
 
@@ -493,6 +493,7 @@ Considere a classe A, a interface I, e as classem implementadoras de I, B e C.
 
 Quando há um autoacoplamento entre dois serviços, por exemplo, a classe B é instanciada em A, caso surja a necessidade de troca desse serviço B por um serviço C, será necessário abrir a classe A, que não deveria ser aberta para essa mudança, e dentro dela trocar a instanciação de B para C. Uma forma de resolver esse problema é com a inversão de controle: Remover esse poder de decisão da classe A (remover a instanciação, deixando apenas a declatação da dependência, a interface I). Um mecanismo de inversão de controle é a injeção de dependência, que pode ser realizada, por exemplo, com a criação de um construtor que recebe como argumento a interface I que é implementada por B e C. Assim, poderá ser instanciado B ou C em A sem alterar nada dentro de A (essa alteração poderia ser feita, por exemplo, na main).
 
-A inversão de dependência se relaciona com os demais conceitos acima pois quem quem aplica ela é a própria injeção de dependência
-txt
+A inversão de dependência se relaciona com os demais conceitos acima pois quem quem aplica ela é a própria injeção de dependência. A criação de uma interface visando reduzir o nível de acoplamento entre diferentes módulos de um sistema é um mecanismo de injeção de dependências. 
+
+Resumindo, injeção de dependências é um padrão de desenvolvimento de programas que faz uma classe não ser mais responsável por criar ou buscar os objetos dos quais ela depende, reduzindo o nível de acoplamento entre as classes.
 
