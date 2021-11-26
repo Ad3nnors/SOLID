@@ -12,7 +12,7 @@ Tabela de conteúdo:
  5. [Interface Segregation Principle (ISP)](#isp)
  6. [Dependency Inversion Principle (DIP)](#dip)
 
-	6.1. [O que é inversão de controle? O que é injeção de dependência? Qual a relação entre inversão de dependência, inversão de controle e injeção de dependência?](#dip4)
+	6.1. [Discussões](#dip0)
 
 *******
 
@@ -460,6 +460,7 @@ public class IdentificaCliente implements Identificador{
 
 Enquanto antes ControleAcesso dependia de IdentificaCliente, agora IdentificaCliente que depende de Produto, ocorrendo a inversão de dependência. Essa mudança soluciona a DIP e permite a reutilização da classe ControleAcesso.
 	
+<div id='dip0'/> 
 	
 ### Discussoes
 	
@@ -473,7 +474,7 @@ martinfowler.com, 2004.
 https://martinfowler.com/articles/injection.html
 	
 	
-<div id='dip2'/> 
+
 	
 #### O que é inversão de controle? O que é injeção de dependência? Qual a relação entre inversão de dependência, inversão de controle e injeção de dependência? 
 	
