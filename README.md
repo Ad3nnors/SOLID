@@ -478,5 +478,8 @@ https://martinfowler.com/articles/injection.html
 	
 #### O que é inversão de controle? O que é injeção de dependência? Qual a relação entre inversão de dependência, inversão de controle e injeção de dependência? 
 	
+Considere a classe A, a interface I, e as classem implementadoras de I, B e C. 
+Quando há um autoacoplamento entre dois serviços, por exemplo, a classe B é instanciada em A, caso surja a necessidade de troca desse serviço B por um serviço C, será necessário abrir a classe A, que não deveria ser aberta para essa mudança, e dentro dela trocar a instanciação de B para C. Uma forma de resolver esse problema é com a inversão de controle: Remover esse poder de decisão da classe A (remover a instanciação, deixando apenas a declatação da dependência, a interface I). Um mecanismo de inversão de controle é a injeção de dependência, que pode ser realizada, por exemplo, com a criação de um construtor que recebe como argumento a interface I que é implementada por B e C. Assim, poderá ser instanciado B ou C em A sem alterar nada dentro de A (essa alteração poderia ser feita, por exemplo, na main).
+A inversão de dependência se relaciona com os demais conceitos acima pois quem quem aplica ela é a própria injeção de dependência
 txt
 
